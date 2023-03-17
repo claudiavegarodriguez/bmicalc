@@ -16,10 +16,12 @@ limitations under the License. */
 package bmicalc.bbd;
 
 import bmicalc.BMICalcImpl;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import static org.junit.Assert.*;
+
+import org.junit.jupiter.api.Assertions;
 
 public class StepDefinitions {
 	BMICalcImpl calc = new BMICalcImpl();
@@ -45,7 +47,7 @@ public class StepDefinitions {
     }
     @Then("BMI should be {double}")
     public void bmi_should_be(Double expectedBMI) {
-    	assertEquals(expectedBMI, bmi, 0.1);
+    	Assertions.assertEquals(expectedBMI, bmi, 0.1);
     }
     
     
@@ -61,7 +63,7 @@ public class StepDefinitions {
     }
     @Then("BMI category should be {string}")
     public void bmi_category_should_be(String expectedCategory) {
-    	assertEquals(expectedCategory, category);
+    	Assertions.assertEquals(expectedCategory, category);
     }
     
     
