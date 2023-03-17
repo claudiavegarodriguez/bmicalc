@@ -88,25 +88,25 @@ Then [BMI should be -bmi-]
 
 Scenario: Handle zero or negative values
 
-Given [mass] 
-And [height]
-When [BMI is calculated]
-Then [an error should be thrown with message "Values cannot be a zero or a negative number"]
+Given [mass] <br>
+And [height] <br>
+When [BMI is calculated] <br>
+Then [an error should be thrown with message "Values cannot be a zero or a negative number"] <br>
 
 
 
 Scenario: Categorize BMI as underweight/normal/overweight/obese
 
-Given [BMI is -bmi-]
-When [BMI category is determined]
-Then [BMI category should be "UNDERWEIGHT/NORMAL/OVERWEIGHT/OBESE"]
+Given [BMI is -bmi-] <br>
+When [BMI category is determined] <br>
+Then [BMI category should be "UNDERWEIGHT/NORMAL/OVERWEIGHT/OBESE"] <br>
   
 
 Scenario: Identify abdominal obesity in females/males
 
-Given [waist circumference]
-And [gender is  'F' 'M']
-When [checking for abdominal obesity]
-Then [it should be true/false]
+Given [waist circumference] <br>
+And [gender is  'F' 'M'] <br>
+When [checking for abdominal obesity] <br>
+Then [it should be true/false] <br>
 	
 
