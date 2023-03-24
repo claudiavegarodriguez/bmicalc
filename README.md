@@ -1,4 +1,8 @@
 
+![Interface Image: Prototype](https://github.com/claudiavegarodriguez/bmicalc/blob/main/doc/InterfazBMI.png)
+
+![Interface Image: Final Result](https://github.com/claudiavegarodriguez/bmicalc/blob/main/doc/interfazUso.png)
+
 ![UML diagram](https://github.com/claudiavegarodriguez/bmicalc/blob/main/doc/DiagramaUML.png)
 
 # BMI calculator
