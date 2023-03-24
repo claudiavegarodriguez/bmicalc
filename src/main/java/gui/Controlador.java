@@ -42,9 +42,9 @@ public class Controlador implements ActionListener{
 			boolean resultado = modelo.abdominalObesity(a, b);
 			String res = "";
 			if (resultado == false) {
-				res = "No tiene Obesidad abdominal";
+				res = "You don't have abdominal obesity";
 			} else if (resultado == true) {
-				res = "Tiene obesidad abdominal";
+				res = "You have abdominal obesity";
 			} else {
 				throw new RuntimeException("Error");
 			}
