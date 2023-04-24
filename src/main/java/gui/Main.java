@@ -10,7 +10,7 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BMICalcImpl modelo = new BMICalcImpl();
+					BMICalcImpl modelo = BMICalcImpl.getSingletonInstance();
 					BMIcalculator vista = new BMIcalculator();
 					Controlador controlador = new Controlador(modelo, vista);
 					vista.registrarControlador(controlador);

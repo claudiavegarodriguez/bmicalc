@@ -17,6 +17,7 @@ package bmicalc.bbd;
 
 import bmicalc.BMICalcImpl;
 
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -24,7 +25,7 @@ import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 
 public class StepDefinitions {
-	BMICalcImpl calc = new BMICalcImpl();
+	BMICalcImpl calc = BMICalcImpl.getSingletonInstance();
     double mass, height, bmi;
     String category;
     double waistCircumference;

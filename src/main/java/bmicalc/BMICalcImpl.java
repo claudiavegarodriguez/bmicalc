@@ -1,7 +1,26 @@
 package bmicalc;
 
+import java.util.HashMap;
+import java.util.Map;
 
-public class BMICalcImpl implements BMICalc {
+public class BMICalcImpl implements BMICalc, IMCHospital, IMCStats, IMCHospitalStrategy {
+	
+	private double alturaMedia, pesoMedio, imcMedio;
+	private int numPacientes;
+	private static BMICalcImpl bmicalcimpl;
+	
+	private BMICalcImpl() {
+		this.bmicalcimpl = new BMICalcImpl();
+	}
+	
+	public static BMICalcImpl getSingletonInstance() {
+		if(bmicalcimpl == null) {
+			bmicalcimpl = new BMICalcImpl();
+		} else {
+			System.out.println("No se puede crear el objeto " + bmicalcimpl + "Porque ya existe un objeto de la clase BMICalcImpl");
+		}
+		return bmicalcimpl;
+	}
 
 	public double bmi(double mass, double height) {
 		if (mass <= 0 || height <= 0) {
@@ -38,6 +57,61 @@ public class BMICalcImpl implements BMICalc {
 			return false;
 		}
 		
+	}
+
+	
+	@Override 
+	public BMICalcImpl clone() {
+		try {
+			throw new CloneNotSupportedException();
+		} catch (CloneNotSupportedException ex) {
+			System.out.println("No se puede clonar un objeto de la clase BMICalcImpl");
+		}
+		return null;
+	}
+
+	@Override
+	public double alturaMedia() {
+		return alturaMedia;
+	}
+
+	@Override
+	public double pesoMedio() {
+		return pesoMedio;
+	}
+
+	@Override
+	public double imcMedio() {
+		return imcMedio;
+	}
+
+	@Override
+	public int numPacientes() {
+		return numPacientes;
+	}
+
+	@Override
+	public Map<Double, String> imc(double altura, double peso) {
+		Double bmi_valor = bmi(altura, peso);
+		String categoria = category(bmi_valor);
+		Map<Double, String> res= new HashMap<Double, String>(); 
+		res.put(bmi_valor, categoria);
+		return res;
+	}
+
+	@Override
+	public boolean tieneObesidadAbdominal(char genero, double circunferencia) {
+		boolean tieneObe = abdominalObesity(circunferencia, genero);
+		return tieneObe;
+	}
+
+	@Override
+	public String VersionStrategy(double peso, double altura) {
+		if (peso <= 0 || altura <= 0) {
+			throw new ArithmeticException("Los valores no pueden ser ceros  o un número negativo");
+		}
+		double bmi = peso / (Math.pow(altura, 2));
+		return "El resultado del BMI es: " +bmi;
 	}
 
 }

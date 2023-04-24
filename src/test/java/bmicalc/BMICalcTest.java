@@ -16,7 +16,7 @@ import java.time.*;
 
 public class BMICalcTest {
 	
-	private BMICalcImpl number = new BMICalcImpl();
+	private BMICalcImpl number = BMICalcImpl.getSingletonInstance();
 	
 	
 	@Test 
