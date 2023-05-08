@@ -16,7 +16,7 @@ limitations under the License. */
 package bmicalc.bbd;
 
 import bmicalc.BMICalcImpl;
-
+import bmicalc.ObesityCategory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -26,7 +26,7 @@ import org.junit.jupiter.api.Assertions;
 public class StepDefinitions {
 	BMICalcImpl calc = new BMICalcImpl();
     double mass, height, bmi;
-    String category;
+    ObesityCategory category;
     double waistCircumference;
     char gender;
     boolean abdominalObesity;   
@@ -43,7 +43,7 @@ public class StepDefinitions {
     }
     @When("BMI is calculated")
     public void bmi_is_calculated() {
-    	bmi = calc.bmi(mass, height);
+    	bmi = calc.calculateBodyMassIndex(mass, height);
     }
     @Then("BMI should be {double}")
     public void bmi_should_be(Double expectedBMI) {
@@ -58,7 +58,7 @@ public class StepDefinitions {
     }
     @When("BMI category is determined")
     public void bmi_category_is_determined() {
-        category = calc.category(bmi);
+        category = calc.getObesityCategory(bmi);
         
     }
     @Then("BMI category should be {string}")

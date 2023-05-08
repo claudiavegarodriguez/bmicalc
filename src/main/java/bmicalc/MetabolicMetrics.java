@@ -25,6 +25,6 @@ public interface MetabolicMetrics {
 	 * @param gender				Male ('M') or Female ('F').
 	 * @return						True if the person has abdominal obesity, false otherwise.
 	 */
-	public boolean abdominalObesity(double waistCircumference, char gender);
+	public boolean abdominalObesity(double waistCircumference, Gender gender);
 
 }
