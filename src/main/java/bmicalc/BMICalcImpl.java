@@ -1,7 +1,7 @@
 package bmicalc;
 
 
-public class BMICalcImpl implements BMICalc {
+public class BMICalcImpl implements CardiovascularMetrics, MetabolicMetrics {
 
 	public double bmi(double mass, double height) {
 		if (mass <= 0 || height <= 0) {
