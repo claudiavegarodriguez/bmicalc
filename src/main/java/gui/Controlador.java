@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import bmicalc.BMICalcImpl;
+import bmicalc.Gender;
+import bmicalc.ObesityCategory;
 
 public class Controlador implements ActionListener{
 	
@@ -25,20 +27,20 @@ public class Controlador implements ActionListener{
 			// Calcular bmi
 			double a = vista.getInputHeight();
 			double b = vista.getInputMass();
-			double resultado = modelo.bmi(b,a);	
+			double resultado = modelo.calculateBodyMassIndex(b,a);	
 			vista.setResultadoBMI(resultado);
 			
 		} else if(comando.equals("Determine Category")) {
 			//determinar categoria
 			double a = vista.getInputHeight();
 			double b = vista.getInputMass();
-			double resultado = modelo.bmi(b,a);
-			String categoria = modelo.category(resultado);
+			double resultado = modelo.calculateBodyMassIndex(b,a);
+			ObesityCategory categoria = modelo.getObesityCategory(resultado);
 			vista.setResultadoCategory(categoria);
 			
 		} else {
 			double a = vista.getInputWaistCircunference();
-			char b = vista.ValideRadios();
+			Gender b = vista.ValideRadios();
 			boolean resultado = modelo.abdominalObesity(a, b);
 			String res = "";
 			if (resultado == false) {
@@ -53,8 +55,6 @@ public class Controlador implements ActionListener{
 		}
 	}
 	
-	// para generar el jar, click derecho en el proyecto y run as maven install, para ejecutar el bicho, abrir cmd en la carpeta target y ejecutar 
-	// desde ahi el .jar (subir a repo).  
 
 
 }

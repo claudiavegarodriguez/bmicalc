@@ -7,6 +7,10 @@ package gui;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import bmicalc.Gender;
+import bmicalc.ObesityCategory;
+
 import javax.swing.JRadioButton;
 import javax.management.RuntimeErrorException;
 import javax.swing.ButtonGroup;
@@ -144,12 +148,12 @@ public class BMIcalculator extends JFrame{
 		return Double.parseDouble(waist_circunference.getText());
 	}
 	
-	public char ValideRadios() {
+	public Gender ValideRadios() {
 		if (female.isSelected()) {
-			return 'F';
+			return Gender.FEMALES;
 			
 		} else if(male.isSelected()) {
-			return 'M';
+			return Gender.MALE;
 		} else {
 			throw new RuntimeException("Porfavor seleccione el sexo correcto");
 		}
@@ -160,7 +164,7 @@ public class BMIcalculator extends JFrame{
 		bmi_result.setText(""+ res);
 	}
 	
-	public void setResultadoCategory(String res) {
+	public void setResultadoCategory(ObesityCategory res) {
 		category_result.setText(""+ res);
 	}
 	
